@@ -14,12 +14,7 @@ public class ValueLabel extends JPanel
 	protected JLabel label = null;
 	
 	public ValueLabel(double value)
-	{	
-<<<<<<< Updated upstream
-		this.value = value;
-		
-=======
->>>>>>> Stashed changes
+	{
 		label = new JLabel();
 		label.setText(decimal_format.format(value));
 		

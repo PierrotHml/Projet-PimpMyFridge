@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/Developpement/Java/Addon/RxTx connector/RXTXcomm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MMoul/Desktop/RXTXcomm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
