@@ -1,5 +1,6 @@
 package controller;
 
+<<<<<<< Updated upstream
 import java.util.Enumeration;
 
 import gnu.io.CommPortIdentifier;
@@ -25,5 +26,12 @@ public class Controller
 			if(serialPortId.getPortType() == CommPortIdentifier.PORT_SERIAL) return serialPortId;
 		}
 		return null;
+=======
+public class Controller
+{
+	public Controller()
+	{
+		
+>>>>>>> Stashed changes
 	}
 }

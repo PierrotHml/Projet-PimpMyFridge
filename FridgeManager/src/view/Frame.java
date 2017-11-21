@@ -22,9 +22,11 @@ public class Frame extends JFrame
 	
 	private JPanel values_sizer = null;
 	
+	private JPanel state_sizer = null;
+	
 	// Value panels
-	ValueLabel fridge_temperature_panel = null;
-	ValueLabel cooler_temperature_panel = null;
+	private ValueLabel fridge_temperature_panel = null;
+	private ValueLabel cooler_temperature_panel = null;
 	
 	public Frame()
 	{
@@ -51,6 +53,10 @@ public class Frame extends JFrame
 	    values_sizer = new JPanel();
 	    values_sizer.setBackground(Color.GRAY);
 	    values_sizer.setPreferredSize(new Dimension((int) (measures_sizer.getPreferredSize().getWidth() * (3.0/4.0)), (int) measures_sizer.getPreferredSize().getHeight()));
+	    
+	    // Initializing fridge sizers.
+	    state_sizer = new JPanel();
+	    
 	    
 	    // Initializing value panels.
 	    fridge_temperature_panel = new ValueLabel(0); //TODO
@@ -83,5 +89,15 @@ public class Frame extends JFrame
 	    setContentPane(content_sizer);
         
 	    setVisible(true);
+	}
+	
+	void update_fridge_temperature(double value)
+	{
+		fridge_temperature_panel.update_value(value);
+	}
+	
+	void update_cooler_temperature(double value)
+	{
+		cooler_temperature_panel.update_value(value);
 	}
 }

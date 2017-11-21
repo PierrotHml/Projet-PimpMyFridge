@@ -4,18 +4,17 @@ public class View
 {
 	Frame frame = null;
 	
+	
+	
 	public View()
 	{
 		this.frame = new Frame();
 	}
 	
-	public void set_fridge_temperature(double value)
+	public void update_view()
 	{
-		frame.fridge_temperature_panel.setValue(value);
-	}
-	
-	public void set_cooler_temperature(double value)
-	{
-		frame.cooler_temperature_panel.setValue(value);
+		frame.update_fridge_temperature(1);
+		
+		frame.update_cooler_temperature(1);
 	}
 }

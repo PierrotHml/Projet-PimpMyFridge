@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.Dimension;
-import java.awt.Label;
 import java.text.DecimalFormat;
 
 import javax.swing.JLabel;
@@ -13,28 +11,23 @@ public class ValueLabel extends JPanel
 	private static final long serialVersionUID = 1L;
 
 	protected static DecimalFormat decimal_format = new DecimalFormat("0.##");
-	protected double value;
 	protected JLabel label = null;
 	
 	public ValueLabel(double value)
 	{	
+<<<<<<< Updated upstream
 		this.value = value;
 		
+=======
+>>>>>>> Stashed changes
 		label = new JLabel();
 		label.setText(decimal_format.format(value));
 		
 		add(label);
 	}
 	
-	public double getValue()
+	public void update_value(double value)
 	{
-		return value;
-	}
-	
-	public void setValue(double value)
-	{
-		this.value = value;
-
 		label.setText(decimal_format.format(value));
 	}
 }
