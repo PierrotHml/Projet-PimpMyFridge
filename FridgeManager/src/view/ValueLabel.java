@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ValueLabel extends JPanel
-{
+{	
 	// Version ID to check if the class is up-to-date.
 	private static final long serialVersionUID = 1L;
 
@@ -17,7 +17,7 @@ public class ValueLabel extends JPanel
 	protected JLabel label = null;
 	
 	public ValueLabel(double value)
-	{
+	{	
 		this.value = value;
 		
 		label = new JLabel();
