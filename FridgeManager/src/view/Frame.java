@@ -10,7 +10,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.JSplitPane;
 
 public class Frame extends JFrame
 {
@@ -38,7 +37,7 @@ public class Frame extends JFrame
 	private ValueLabel fridge_temperature_panel = null;
 	private ValueLabel cooler_temperature_panel = null;
 	
-	private JSlider setpoint_slider = null;
+	private TemperatureSlider setpoint_slider = null;
 	
 	// Fridge switch button
 	private SwitchButton fridge_switch_button = null;
@@ -89,8 +88,7 @@ public class Frame extends JFrame
 	    cooler_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - cooler_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (3.0/4.0) - cooler_temperature_panel.getHeight() / 2.0));
 	    
 	    // Building slider panel.
-	    setpoint_slider = new JSlider(JSlider.VERTICAL, 0, 20, 4);
-	    setpoint_slider.setLocation(1, 1);
+	    setpoint_slider = new TemperatureSlider();
 	    
 	    // Building switch button
 	    fridge_switch_button = new SwitchButton();
@@ -110,8 +108,6 @@ public class Frame extends JFrame
 	    measures_sizer.add(values_sizer, BorderLayout.CENTER);
 	    measures_sizer.add(setpoint_slider_sizer, BorderLayout.EAST);
 	    
-	    setpoint_slider_sizer.setBackground(Color.RED);
-	    
 	    fridge_sizer.setLayout(new BorderLayout());
 	    fridge_sizer.add(fridge_panel, BorderLayout.CENTER);
 	    fridge_sizer.add(state_sizer, BorderLayout.SOUTH);
@@ -121,8 +117,11 @@ public class Frame extends JFrame
 	    values_sizer.add(fridge_temperature_panel);
 	    values_sizer.add(cooler_temperature_panel);
 
-	    setpoint_slider_sizer.setLayout(null);
-	    setpoint_slider_sizer.add(setpoint_slider);
+	    //setpoint_slider_sizer.setLayout(null);
+	    //setpoint_slider_sizer.add(setpoint_slider);
+	    
+	    setpoint_slider_sizer.setLayout(new BorderLayout());
+	    setpoint_slider_sizer.add(setpoint_slider, BorderLayout.CENTER);
 	    
 	    state_sizer.setLayout(new BorderLayout());
 	    state_sizer.add(alerts_sizer, BorderLayout.NORTH);
