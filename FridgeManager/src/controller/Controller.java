@@ -32,4 +32,9 @@ public class Controller
 		
 		system.getArduinoLink().dataEvent();
 	}
+	
+	public static void updateOrder(int order){
+		
+		system.getArduinoLink();
+	}
 }

@@ -6,6 +6,8 @@ import java.text.DecimalFormat;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controller.Controller;
+
 public class ValueLabel extends JPanel
 {	
 	// Version ID to check if the class is up-to-date.
@@ -18,19 +20,19 @@ public class ValueLabel extends JPanel
 	{
 		label = new JLabel();
 		label.setText(decimal_format.format(value));
-		label.setSize(new Dimension(32, 20));
+		label.setSize(new Dimension(38, 20));
 		label.setLocation((int) (getWidth() / 2.0 - label.getWidth() / 2.0), (int) (getHeight() / 2.0 - label.getHeight() / 2.0));
 		
-		setLayout(null);
+		update_value(value);
 		
+		setLayout(null);
 		add(label);
 	}
 	
 	public void update_value(double value)
 	{	
 		label.setText(decimal_format.format(value));
-		
-		// ANTONIO
+		Controller.updateOrder((int)value);
 	}
 	
 	@Override

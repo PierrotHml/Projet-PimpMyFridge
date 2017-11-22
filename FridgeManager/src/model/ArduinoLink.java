@@ -56,6 +56,28 @@ public class ArduinoLink{
 	}
 	
 	
+	public void turnOnPeltier(){
+		
+		try {
+			output.write(1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void turnOffPeltier(){
+		
+		try {
+			output.write(0);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public synchronized void close() {
 		
 		if (serialPort != null) {
