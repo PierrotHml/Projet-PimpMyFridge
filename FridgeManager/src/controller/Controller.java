@@ -10,7 +10,7 @@ public class Controller
 	static CommPortIdentifier serialPortId;
 	static Enumeration<?> enumComm;
 	static CommPortIdentifier comPort;
-	static Fridge system;
+	private static Fridge system;
 	
 	public Controller(){
 		
@@ -35,6 +35,6 @@ public class Controller
 	
 	public static void updateOrder(int order){
 		
-		system.getArduinoLink();
+		system.setOrder(order);
 	}
 }

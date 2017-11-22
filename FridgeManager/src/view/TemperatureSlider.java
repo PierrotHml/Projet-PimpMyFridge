@@ -15,7 +15,7 @@ public class TemperatureSlider extends JSlider
 		super(JSlider.VERTICAL, 0, 30, 18);
 		
 		this.linked_temperature = linked_temperature;
-		linked_temperature.update_value(18);
+		//linked_temperature.update_value(18);
 		
 	    setPaintTicks(true);
 	    setPaintLabels(true);

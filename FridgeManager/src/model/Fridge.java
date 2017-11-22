@@ -18,18 +18,16 @@ public class Fridge {
 		
 		manageData = new ManageData();
 		arduino = new ArduinoLink(portCom);
-		
+		new Regulation(arduino, manageData).start();
 		
 		Thread refreshFrame = new Thread(){
 			public void run() {
 				
 			}
 		};
-		
 		refreshFrame.start();
-
-		new Regulation(arduino, manageData).start();
 	}
+	
 	
 	
 	public static void enableView(){

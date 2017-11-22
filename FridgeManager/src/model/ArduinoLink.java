@@ -47,7 +47,7 @@ public class ArduinoLink{
 		
 		try {
 			String inputLine = input.readLine();
-			System.out.println(inputLine);
+			//System.out.println(inputLine);
 			ManageData.setData(Integer.parseInt(inputLine));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -24,7 +24,7 @@ public class ManageData{
 		R2 = (float) (( (float) 10000*V0)/( (float)5-V0));
 		kelvin = (float) (1 / (0.001096 + 0.00024 * Math.log(R2) + (5.87 * Math.pow(10, -8)) * Math.pow(Math.log(R2), 3)));
 		celsius = (float) (kelvin - 273.15);
-		System.out.println(celsius);
+		//System.out.println(celsius);
 		
 		data[0] = V0; data[1] = R2; data[2] = kelvin; data[3] = celsius;
 	}

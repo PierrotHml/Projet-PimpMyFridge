@@ -23,8 +23,6 @@ public class ValueLabel extends JPanel
 		label.setSize(new Dimension(38, 20));
 		label.setLocation((int) (getWidth() / 2.0 - label.getWidth() / 2.0), (int) (getHeight() / 2.0 - label.getHeight() / 2.0));
 		
-		update_value(value);
-		
 		setLayout(null);
 		add(label);
 	}
