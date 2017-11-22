@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.text.DecimalFormat;
 
@@ -19,7 +18,7 @@ public class ValueLabel extends JPanel
 	{
 		label = new JLabel();
 		label.setText(decimal_format.format(value));
-		label.setSize(new Dimension(24, 20));
+		label.setSize(new Dimension(32, 20));
 		label.setLocation((int) (getWidth() / 2.0 - label.getWidth() / 2.0), (int) (getHeight() / 2.0 - label.getHeight() / 2.0));
 		
 		setLayout(null);
@@ -30,6 +29,8 @@ public class ValueLabel extends JPanel
 	public void update_value(double value)
 	{	
 		label.setText(decimal_format.format(value));
+		
+		// ANTONIO
 	}
 	
 	@Override

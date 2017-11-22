@@ -9,7 +9,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
 
 public class Frame extends JFrame
 {
@@ -33,9 +32,9 @@ public class Frame extends JFrame
 	private JPanel switch_sizer = new JPanel();
 	
 	// Value panels
-	private ValueLabel setpoint_temperature_panel = null;
-	private ValueLabel fridge_temperature_panel = null;
-	private ValueLabel cooler_temperature_panel = null;
+	ValueLabel setpoint_temperature_panel = null;
+	ValueLabel fridge_temperature_panel = null;
+	ValueLabel cooler_temperature_panel = null;
 	
 	private TemperatureSlider setpoint_slider = null;
 	
@@ -88,7 +87,7 @@ public class Frame extends JFrame
 	    cooler_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - cooler_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (3.0/4.0) - cooler_temperature_panel.getHeight() / 2.0));
 	    
 	    // Building slider panel.
-	    setpoint_slider = new TemperatureSlider();
+	    setpoint_slider = new TemperatureSlider(setpoint_temperature_panel);
 	    
 	    // Building switch button
 	    fridge_switch_button = new SwitchButton();
@@ -116,9 +115,6 @@ public class Frame extends JFrame
 	    values_sizer.add(setpoint_temperature_panel);
 	    values_sizer.add(fridge_temperature_panel);
 	    values_sizer.add(cooler_temperature_panel);
-
-	    //setpoint_slider_sizer.setLayout(null);
-	    //setpoint_slider_sizer.add(setpoint_slider);
 	    
 	    setpoint_slider_sizer.setLayout(new BorderLayout());
 	    setpoint_slider_sizer.add(setpoint_slider, BorderLayout.CENTER);
@@ -136,15 +132,5 @@ public class Frame extends JFrame
 	    setContentPane(content_sizer);
 	    
 	    setVisible(true);
-	}
-	
-	void update_fridge_temperature(double value)
-	{
-		fridge_temperature_panel.update_value(value);
-	}
-	
-	void update_cooler_temperature(double value)
-	{
-		cooler_temperature_panel.update_value(value);
 	}
 }

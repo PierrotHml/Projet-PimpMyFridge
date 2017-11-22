@@ -11,11 +11,11 @@ public class View
 	
 	public void update_fridge_temperature(int value)
 	{
-		frame.update_fridge_temperature(value);
+		frame.fridge_temperature_panel.update_value(value);
 	}
 		
 	public void update_cooler_temperature(int value)
 	{
-		frame.update_cooler_temperature(1);
+		frame.cooler_temperature_panel.update_value(value);
 	}
 }
