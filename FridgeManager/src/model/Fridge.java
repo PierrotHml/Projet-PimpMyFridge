@@ -7,8 +7,10 @@ public class Fridge {
 
 	
 	static View myView;
-	static ManageData manageData;
-	static ArduinoLink arduino;
+	private static ManageData manageData;
+	private static ArduinoLink arduino;
+	private static int order = 0;
+	
 	
 	public Fridge(CommPortIdentifier portCom){
 		
@@ -17,6 +19,7 @@ public class Fridge {
 		manageData = new ManageData();
 		arduino = new ArduinoLink(portCom);
 		
+		
 		Thread refreshFrame = new Thread(){
 			public void run() {
 				
@@ -24,6 +27,8 @@ public class Fridge {
 		};
 		
 		refreshFrame.start();
+
+		new Regulation(arduino, manageData).start();
 	}
 	
 	
@@ -35,6 +40,17 @@ public class Fridge {
 	
 	public ArduinoLink getArduinoLink(){
 		return arduino;
+	}
+	
+	
+	public void setOrder(int order){
+		Fridge.order = order;
+		System.out.println(Fridge.order);
+	}
+	
+	
+	public int getOrder(){
+		return order;
 	}
 	
 	
