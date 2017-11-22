@@ -10,10 +10,11 @@ public class Controller
 	static CommPortIdentifier serialPortId;
 	static Enumeration<?> enumComm;
 	static CommPortIdentifier comPort;
+	static Fridge system;
 	
 	public Controller(){
 		
-		new Fridge(findPort());
+		system = new Fridge(findPort());
 	}
 	
 	public static CommPortIdentifier findPort(){
@@ -25,5 +26,10 @@ public class Controller
 			if(serialPortId.getPortType() == CommPortIdentifier.PORT_SERIAL) return serialPortId;
 		}
 		return null;
+	}
+	
+	public static void updateModelValue(){
+		
+		system.getArduinoLink().dataEvent();
 	}
 }

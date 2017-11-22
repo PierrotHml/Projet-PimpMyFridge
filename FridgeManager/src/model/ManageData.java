@@ -11,10 +11,6 @@ public class ManageData{
 	
 	static DecimalFormat df = new DecimalFormat("0.##");
 	
-	public ManageData(){
-	
-	}
-	
 	
 	public static String roundData(float data){
 		

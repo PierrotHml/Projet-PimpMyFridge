@@ -15,7 +15,7 @@ public class Fridge {
 		enableView();
 		
 		manageData = new ManageData();
-		//arduino = new ArduinoLink(portCom);
+		arduino = new ArduinoLink(portCom);
 		
 		Thread refreshFrame = new Thread(){
 			public void run() {
@@ -26,13 +26,19 @@ public class Fridge {
 		refreshFrame.start();
 	}
 	
+	
 	public static void enableView(){
 		
 		myView = new View();
 	}
 	
-	public static void setFridgeTempC(){
-		
+	
+	public ArduinoLink getArduinoLink(){
+		return arduino;
+	}
+	
+	
+	public void uptadeView(){
 		
 	}
 }

@@ -1,15 +1,14 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
-import gnu.io.SerialPortEvent;
-import gnu.io.SerialPortEventListener;
+import view.VirtualLink;
 
-public class ArduinoLink implements SerialPortEventListener{
+public class ArduinoLink{
 
 	private CommPortIdentifier comPort;
 	private SerialPort serialPort;
@@ -34,31 +33,25 @@ public class ArduinoLink implements SerialPortEventListener{
 			// open the streams
 			input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
 			output = serialPort.getOutputStream();
+			
+			//add event
+			new VirtualLink(serialPort);
 
-			// add event listeners
-			serialPort.addEventListener(this);
-			serialPort.notifyOnDataAvailable(true);
 		} catch (Exception e) {
 			System.err.println(e.toString());
 		}
 	}
 	
 	
-	@Override
-	public synchronized void serialEvent(SerialPortEvent oEvent) {
+	public void dataEvent(){
 		
-		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
-			
-			try {
-				String inputLine = input.readLine();
-				
-				System.out.println(inputLine);
-				ManageData.setData(Integer.parseInt(inputLine));
-				
-			} catch (Exception e) {
-				
-				System.err.println(e.toString());
-			}
+		try {
+			String inputLine = input.readLine();
+			System.out.println(inputLine);
+			ManageData.setData(Integer.parseInt(inputLine));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("InputLine null");
 		}
 	}
 	
@@ -68,6 +61,14 @@ public class ArduinoLink implements SerialPortEventListener{
 		if (serialPort != null) {
 			serialPort.removeEventListener();
 			serialPort.close();
+			
+			try {
+				input.close();
+				output.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 	}
 }
