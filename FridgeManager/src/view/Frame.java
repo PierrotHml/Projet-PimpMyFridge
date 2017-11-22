@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,6 +14,9 @@ public class Frame extends JFrame
 {
 	// Version ID to check if the GUI is up-to-date.
 	private static final long serialVersionUID = 1L;
+	
+	//icon
+	Image icone = Toolkit.getDefaultToolkit().getImage("res/fridgeIcon.png");
 
 	// Content sizer
 	private JPanel content_sizer = new JPanel();
@@ -20,11 +25,8 @@ public class Frame extends JFrame
 	private JPanel measures_sizer = new JPanel();
 	private JPanel fridge_sizer = new JPanel();
 	private JPanel graphs_sizer = new JPanel();
-	
 	private JPanel values_sizer = new JPanel();
-	
 	private JPanel state_sizer = new JPanel();
-	
 	private JPanel alerts_sizer = new JPanel();
 	
 	// Value panels
@@ -37,6 +39,7 @@ public class Frame extends JFrame
 	public Frame()
 	{
 		// Configuring the application frame.
+		setIconImage(icone);
 		setTitle("Fridge Manager");
 		setSize(1280, 720);
 		setResizable(false);
