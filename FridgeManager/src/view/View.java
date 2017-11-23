@@ -4,9 +4,9 @@ public class View
 {
 	Frame frame = null;
 	
-	public View()
+	public View(String portName)
 	{
-		this.frame = new Frame();
+		this.frame = new Frame(portName);
 	}
 	
 	public void update_fridge_temperature(double value)

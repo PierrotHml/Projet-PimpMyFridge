@@ -14,7 +14,7 @@ public class Fridge {
 	
 	public Fridge(CommPortIdentifier portCom){
 		
-		enableView();
+		enableView(portCom.getName());
 		
 		manageData = new ManageData();
 		arduino = new ArduinoLink(portCom, manageData);
@@ -42,9 +42,9 @@ public class Fridge {
 	
 	
 	
-	public static void enableView(){
+	public static void enableView(String portName){
 		
-		myView = new View();
+		myView = new View(portName);
 	}
 	
 	

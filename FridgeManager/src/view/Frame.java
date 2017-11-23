@@ -41,11 +41,11 @@ public class Frame extends JFrame
 	// Fridge switch button
 	private SwitchButton fridge_switch_button = null;
 	
-	public Frame()
+	public Frame(String portName)
 	{
 		// Configuring the application frame.
 		setIconImage(icone);
-		setTitle("Fridge Manager");
+		setTitle("Fridge Manager [" + portName + "]");
 		setSize(1280, 720);
 		setResizable(false);
 	    setLocationRelativeTo(null);
