@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -10,7 +13,7 @@ public class TemperatureSlider extends JSlider
 
 	ValueLabel linked_temperature;
 	
-	public TemperatureSlider(ValueLabel linked_temperature)
+	public TemperatureSlider(ValueLabel linked_temperature, double widthSlider)
 	{	
 		super(JSlider.VERTICAL, 0, 30, 15);
 		
@@ -21,6 +24,10 @@ public class TemperatureSlider extends JSlider
 	    setPaintLabels(true);
 	    setMinorTickSpacing(1);
         setMajorTickSpacing(5);
+        setBounds(0,40,(int) (widthSlider * (1.0/4.0)), 600);
+        setFont(new Font("Arial", 0, 20));
+        setForeground(Color.white);
+        setBackground(new Color(30,30,30));
         
         addChangeListener(new ChangeListener()
         {

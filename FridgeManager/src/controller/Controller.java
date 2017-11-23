@@ -51,5 +51,6 @@ public class Controller
 	public static void updateOrder(int order){
 		
 		system.setOrder(order);
+		system.refreshView();
 	}
 }

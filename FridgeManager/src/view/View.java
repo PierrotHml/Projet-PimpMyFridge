@@ -18,4 +18,9 @@ public class View
 	{
 		frame.cooler_temperature_panel.update_value(value);
 	}
+	
+	public void refresh(){
+		
+		frame.refreshFrame();
+	}
 }

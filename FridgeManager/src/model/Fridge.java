@@ -27,8 +27,9 @@ public class Fridge {
 					
 					while(true){
 					
-						myView.update_fridge_temperature(manageData.getData("celsiusDHT22"));
-						myView.update_cooler_temperature(manageData.getData("celsius"));
+						myView.update_fridge_temperature(manageData.getData("celsius"));
+						myView.update_cooler_temperature(manageData.getData("humidity"));
+						refreshView();
 						Thread.sleep(2000);
 					}
 				} catch (InterruptedException e) {
@@ -45,6 +46,12 @@ public class Fridge {
 	public static void enableView(String portName){
 		
 		myView = new View(portName);
+	}
+	
+	
+	public void refreshView(){
+		
+		myView.refresh();
 	}
 	
 	

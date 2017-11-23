@@ -3,10 +3,12 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -27,7 +29,7 @@ public class Frame extends JFrame
 	private JPanel graphs_sizer = new JPanel();
 	private JPanel values_sizer = new JPanel();
 	private JPanel setpoint_slider_sizer = new JPanel();
-	private JPanel fridge_image_sizer = new JPanel();
+	private ValuesPanel values_sizer = new ValuesPanel();
 	private JPanel state_sizer = new JPanel();
 	private JPanel alerts_sizer = new JPanel();
 	private JPanel switch_sizer = new JPanel();
@@ -70,9 +72,9 @@ public class Frame extends JFrame
 	    graphs_sizer.setPreferredSize(new Dimension((int) (getWidth() * (2.0/5.0)), getHeight()));
 
 	    // Building measure sizers.
+	    setpoint_slider_sizer.setBackground(new Color(30,30,30));
 	    setpoint_slider_sizer.setPreferredSize(new Dimension((int) (measures_sizer.getPreferredSize().getWidth() * (1.0/4.0)), (int) measures_sizer.getPreferredSize().getHeight()));
 	    
-	    values_sizer.setBackground(Color.GRAY);
 	    values_sizer.setPreferredSize(new Dimension((int) (measures_sizer.getPreferredSize().getWidth() * (3.0/4.0)), (int) measures_sizer.getPreferredSize().getHeight()));
 	    
 	    // Building fridge sizers.
@@ -81,20 +83,20 @@ public class Frame extends JFrame
 	    state_sizer.setPreferredSize(new Dimension((int) fridge_sizer.getPreferredSize().getWidth(), (int) (fridge_sizer.getPreferredSize().getHeight() * (2.0/5.0))));
 	    
 	    // Building value panels.
-	    setpoint_temperature_panel = new ValueLabel(15, true);
+	    setpoint_temperature_panel = new ValueLabel(15, true, "CONSIGNE");
 	    setpoint_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (2.0/3.0)), (int) (values_sizer.getPreferredSize().getWidth() * (2.0/3.0))));
 	    setpoint_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - setpoint_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (1.0/2.0) - 18 - setpoint_temperature_panel.getHeight() / 2.0));
 	    
-	    fridge_temperature_panel = new ValueLabel(0, false);
+	    fridge_temperature_panel = new ValueLabel(0, false, "TEMPERATURE");
 	    fridge_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
 	    fridge_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - fridge_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (1.0/4.0) - 36 - fridge_temperature_panel.getHeight() / 2.0));
 	    
-	    cooler_temperature_panel = new ValueLabel(0, false);
+	    cooler_temperature_panel = new ValueLabel(0, false, "HUMIDITY");
 	    cooler_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
 	    cooler_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - cooler_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (3.0/4.0) - cooler_temperature_panel.getHeight() / 2.0));
 	    
 	    // Building slider panel.
-	    setpoint_slider = new TemperatureSlider(setpoint_temperature_panel);
+	    setpoint_slider = new TemperatureSlider(setpoint_temperature_panel, measures_sizer.getPreferredSize().getWidth());
 	    
 	    // Building firdge image.
 	    fridge_image = new FridgeImage();
@@ -141,8 +143,8 @@ public class Frame extends JFrame
 	    values_sizer.add(fridge_temperature_panel);
 	    values_sizer.add(cooler_temperature_panel);
 	    
-	    setpoint_slider_sizer.setLayout(new BorderLayout());
-	    setpoint_slider_sizer.add(setpoint_slider, BorderLayout.CENTER);
+	    setpoint_slider_sizer.setLayout(null);
+	    setpoint_slider_sizer.add(setpoint_slider);
 	    
 	    fridge_image_sizer.setLayout(new BorderLayout());
 	    fridge_image_sizer.add(fridge_image, BorderLayout.CENTER);
@@ -158,7 +160,13 @@ public class Frame extends JFrame
 	    
 	    // Creating fridge manager content tree.
 	    setContentPane(content_sizer);
-	    
 	    setVisible(true);
+	}
+	
+	
+	public void refreshFrame(){
+		
+		this.revalidate();
+		this.repaint();
 	}
 }
