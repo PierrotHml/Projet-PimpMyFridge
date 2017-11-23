@@ -20,13 +20,13 @@ public class ManageData{
 	}
 	
 	
-	public void setTemp(int pinValue){
+	public void setTemp(float pinValue){
 		
 		V0 = (float) ((float) pinValue/205);
 		R2 = (float) (( (float) 10000*V0)/( (float)5-V0));
 		kelvin = (float) (1 / (0.001096 + 0.00024 * Math.log(R2) + (5.87 * Math.pow(10, -8)) * Math.pow(Math.log(R2), 3)));
 		celsius = (float) (kelvin - 273.15);
-		
+
 		data[0] = V0; data[1] = R2; data[2] = kelvin; data[3] = celsius;
 	}
 	

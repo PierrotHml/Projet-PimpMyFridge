@@ -65,11 +65,10 @@ public class Fridge {
 	
 	public void setOrder(int order){
 		Fridge.order = order;
-		System.out.println(Fridge.order);
 	}
 	
 	
-	public int getOrder(){
+	public static int getOrder(){
 		return order;
 	}
 }

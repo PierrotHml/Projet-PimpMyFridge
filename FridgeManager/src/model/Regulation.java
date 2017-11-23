@@ -15,10 +15,10 @@ public class Regulation extends Thread{
 	public void run(){
 		
 		try {
-			Regulation.sleep(2000);
-			
 			while(true){
-
+				if(manageData.getData("celsius") > Fridge.getOrder()) arduino.turnOnPeltier();
+				else if(manageData.getData("celsius") <= Fridge.getOrder()) arduino.turnOffPeltier();
+				Regulation.sleep(5000);
 			}
 			
 		} catch (InterruptedException e) {

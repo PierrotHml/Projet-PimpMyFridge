@@ -52,13 +52,13 @@ public class ArduinoLink{
 			
 			String inputLine = input.readLine();
 			
-			if(inputLine.startsWith("A")) manageData.setTemp(Integer.parseInt(inputLine.replaceAll("A", "")));
+			if(inputLine.startsWith("A")) manageData.setTemp(Float.parseFloat(inputLine.replaceAll("A", "")));
 			else if(inputLine.startsWith("B")) manageData.setHumidity(Float.parseFloat(inputLine.replaceAll("B", "")));
 			else if(inputLine.startsWith("C")) manageData.setTempDHT22(Float.parseFloat(inputLine.replaceAll("C", "")));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("InputLine null");
+			//System.out.println("InputLine null");
 		}
 	}
 	
@@ -67,6 +67,7 @@ public class ArduinoLink{
 		
 		try {
 			output.write(1);
+			System.out.println("turn on");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,6 +79,7 @@ public class ArduinoLink{
 		
 		try {
 			output.write(0);
+			System.out.println("turn off");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
