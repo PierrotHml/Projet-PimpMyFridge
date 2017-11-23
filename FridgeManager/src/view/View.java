@@ -23,6 +23,11 @@ public class View
 		frame.fridge_humidity_graph.add_value(value, time);
 	}
 	
+	public void tell_frdige_state(boolean state) // ANTONIO
+	{
+		frame.fridge_switch_button.tell_fridge_state(state);
+	}
+	
 	public void refresh(){
 		
 		frame.refreshFrame();

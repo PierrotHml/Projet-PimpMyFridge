@@ -10,25 +10,52 @@ public class SwitchButton extends JButton implements MouseListener
 	// Version ID to check if program is up-to-date.
 	private static final long serialVersionUID = 1L;
 	
+	private boolean fridge_power;
+	
 	public SwitchButton()
 	{
 		addMouseListener(this);
+		
+		set_on();
 	}
 	
-	public void tell_on()
+	public void set_on()
 	{
-		setText("Éteindre l'arduino");
+		setText("Éteindre le frigo");
+		
+		fridge_power = true;
 	}
 	
-	public void tell_off()
+	public void set_off()
 	{
-		setText("Allumer l'arduino");
+		setText("Allumer le frigo");
+		
+		fridge_power = false;
+	}
+	
+	public void tell_fridge_state(boolean state)
+	{
+		if (state)
+			set_on();
+		else
+			set_off();
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
+		if (fridge_power)
+		{
+			set_off();
 		
+			// ANTONIO
+		}
+		else
+		{
+			set_on();
+			
+			// ANTONIO
+		}
 	}
 
 	@Override

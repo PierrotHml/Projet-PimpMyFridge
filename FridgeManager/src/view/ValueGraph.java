@@ -1,8 +1,5 @@
 package view;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -15,12 +12,13 @@ public class ValueGraph extends ChartPanel
 
 	protected JFreeChart chart = null;
 	
-	Map<Integer, Double> values = new HashMap<Integer, Double>();
+	private int values_number = 0;
 	
 	private static DefaultCategoryDataset fridge_temperature_dataset = new DefaultCategoryDataset();
 	private static DefaultCategoryDataset fridge_humidity_dataset = new DefaultCategoryDataset();
 	
-	public ValueGraph(JFreeChart chart) {
+	public ValueGraph(JFreeChart chart)
+	{
 		super(chart);
 		
 		this.chart = chart;
@@ -28,25 +26,37 @@ public class ValueGraph extends ChartPanel
 	
 	public void add_value(double value, int time)
 	{
-		values.put(time, value);
+		time /= 1000;
+		
+		values_number += time;
 		
 		if (chart.getTitle().getText() == "Température du frigidaire par rapport au temps")
 		{
-			fridge_temperature_dataset.addValue(value, "Température (°C)", Integer.toString((int) time / 1000));
+			fridge_temperature_dataset.addValue(value, "Température", Integer.toString((int) time));
+			
+			if (values_number > 10)
+			{
+				fridge_temperature_dataset.removeValue("Température", Integer.toString((int) time - 10));
+			}
 		}
 		else
 		{
-			fridge_humidity_dataset.addValue(value, "Humidité (%)", Integer.toString((int) time / 1000));
+			fridge_humidity_dataset.addValue(value, "Humidité", Integer.toString((int) time));
+			
+			if (values_number > 10)
+			{
+				fridge_humidity_dataset.removeValue("Humidité", Integer.toString((int) time - 10));
+			}
 		}
 	}
 	
 	static JFreeChart get_fridge_temperature_chart()
 	{
-		return ChartFactory.createLineChart("Température du frigidaire par rapport au temps", "Temps", "Température", fridge_temperature_dataset, PlotOrientation.VERTICAL, true,true,false);
+		return ChartFactory.createLineChart("Température du frigidaire par rapport au temps", "Temps (s)", "Température (°C)", fridge_temperature_dataset, PlotOrientation.VERTICAL, true,true,false);
 	}
 	
 	static JFreeChart get_fridge_humidity_chart()
 	{
-		return ChartFactory.createLineChart("Humidité du frigidaire par rapport au temps", "Temps", "Humidité", fridge_humidity_dataset, PlotOrientation.VERTICAL, true,true,false);
+		return ChartFactory.createLineChart("Humidité du frigidaire par rapport au temps", "Temps (s)", "Humidité (%)", fridge_humidity_dataset, PlotOrientation.VERTICAL, true,true,false);
 	}
 }
