@@ -53,7 +53,7 @@ public class ValueLabel extends JPanel
 		
 		if (sendable == true)
 		{
-			Controller.updateOrder((int)value);	
+			Controller.updateOrder((int)value);
 		}
 	}
 	

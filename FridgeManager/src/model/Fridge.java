@@ -29,8 +29,8 @@ public class Fridge {
 					
 					while(true){
 					
-						myView.update_fridge_temperature(manageData.getData("celsius"), refreshTime);
-						myView.update_cooler_temperature(manageData.getData("humidity"), refreshTime);
+						myView.update_fridge_temperature(manageData.getData("celsius"), time);
+						myView.update_fridge_humidity(manageData.getData("humidity"), time);
 						refreshView();
 						time += refreshTime;
 						Thread.sleep(refreshTime);

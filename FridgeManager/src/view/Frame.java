@@ -37,7 +37,7 @@ public class Frame extends JFrame
 	// Value panels
 	ValueLabel setpoint_temperature_panel = null;
 	ValueLabel fridge_temperature_panel = null;
-	ValueLabel cooler_temperature_panel = null;
+	ValueLabel fridge_humidity_panel = null;
 	
 	// Setpoint value slider
 	TemperatureSlider setpoint_slider = null;
@@ -91,9 +91,9 @@ public class Frame extends JFrame
 	    fridge_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
 	    fridge_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - fridge_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (1.0/4.0) - 36 - fridge_temperature_panel.getHeight() / 2.0));
 	    
-	    cooler_temperature_panel = new ValueLabel(0, false, "HUMIDITY");
-	    cooler_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
-	    cooler_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - cooler_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (3.0/4.0) - cooler_temperature_panel.getHeight() / 2.0));
+	    fridge_humidity_panel = new ValueLabel(0, false, "HUMIDITY");
+	    fridge_humidity_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
+	    fridge_humidity_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - fridge_humidity_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (3.0/4.0) - fridge_humidity_panel.getHeight() / 2.0));
 	    
 	    // Building slider panel.
 	    setpoint_slider = new TemperatureSlider(setpoint_temperature_panel, measures_sizer.getPreferredSize().getWidth());
@@ -141,7 +141,7 @@ public class Frame extends JFrame
 	    values_sizer.setLayout(null);
 	    values_sizer.add(setpoint_temperature_panel);
 	    values_sizer.add(fridge_temperature_panel);
-	    values_sizer.add(cooler_temperature_panel);
+	    values_sizer.add(fridge_humidity_panel);
 	    
 	    setpoint_slider_sizer.setLayout(null);
 	    setpoint_slider_sizer.add(setpoint_slider);
