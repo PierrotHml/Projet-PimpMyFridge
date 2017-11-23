@@ -26,9 +26,11 @@ public class Regulation extends Thread{
 			
 			try {
 				arduino.turnOnPeltier();
-				Regulation.sleep(2000);
+				System.out.println("TURN ON");
+				Regulation.sleep(10000);
 				arduino.turnOffPeltier();
-				Regulation.sleep(2000);
+				System.out.println("TURN OFF");
+				Regulation.sleep(10000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

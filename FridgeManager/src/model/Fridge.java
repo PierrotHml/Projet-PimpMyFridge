@@ -17,19 +17,29 @@ public class Fridge {
 		enableView();
 		
 		manageData = new ManageData();
-		arduino = new ArduinoLink(portCom);
-		
+		arduino = new ArduinoLink(portCom, manageData);
+		//new Regulation(arduino, manageData).start();
 		
 		Thread refreshFrame = new Thread(){
 			public void run() {
 				
+				try {
+					
+					while(true){
+					
+						myView.update_fridge_temperature(manageData.getData("celsiusDHT22"));
+						myView.update_cooler_temperature(manageData.getData("celsius"));
+						Thread.sleep(2000);
+					}
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
 			}
 		};
-		
 		refreshFrame.start();
-
-		new Regulation(arduino, manageData).start();
 	}
+	
 	
 	
 	public static void enableView(){
@@ -51,10 +61,5 @@ public class Fridge {
 	
 	public int getOrder(){
 		return order;
-	}
-	
-	
-	public void uptadeView(){
-		
 	}
 }

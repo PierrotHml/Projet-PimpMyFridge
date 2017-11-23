@@ -11,13 +11,16 @@ import view.VirtualLink;
 public class ArduinoLink{
 
 	private CommPortIdentifier comPort;
+	private ManageData manageData;
 	private SerialPort serialPort;
 	private BufferedReader input;
 	private OutputStream output;
 	
-	public ArduinoLink(CommPortIdentifier comPort){
+	
+	public ArduinoLink(CommPortIdentifier comPort, ManageData manageData){
 		
 		this.comPort = comPort;
+		this.manageData = manageData;
 		initLink();
 	}
 	
@@ -46,9 +49,13 @@ public class ArduinoLink{
 	public void dataEvent(){
 		
 		try {
+			
 			String inputLine = input.readLine();
-			System.out.println(inputLine);
-			ManageData.setData(Integer.parseInt(inputLine));
+			
+			if(inputLine.startsWith("A")) manageData.setTemp(Integer.parseInt(inputLine.replaceAll("A", "")));
+			else if(inputLine.startsWith("B")) manageData.setHumidity(Float.parseFloat(inputLine.replaceAll("B", "")));
+			else if(inputLine.startsWith("C")) manageData.setTempDHT22(Float.parseFloat(inputLine.replaceAll("C", "")));
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("InputLine null");
