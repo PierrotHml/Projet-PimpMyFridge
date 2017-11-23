@@ -14,10 +14,13 @@ public class ValueLabel extends JPanel
 	private static final long serialVersionUID = 1L;
 
 	protected static DecimalFormat decimal_format = new DecimalFormat("0.00");
+	protected boolean sendable;
 	protected JLabel label = null;
 	
-	public ValueLabel(double value)
+	public ValueLabel(double value, boolean sendable)
 	{
+		this.sendable = sendable;
+		
 		label = new JLabel();
 		label.setText(decimal_format.format(value));
 		label.setSize(new Dimension(38, 20));
@@ -30,7 +33,10 @@ public class ValueLabel extends JPanel
 	public void update_value(double value)
 	{	
 		label.setText(decimal_format.format(value));
-		Controller.updateOrder((int)value);
+		if (sendable == true)
+		{
+			Controller.updateOrder((int)value);	
+		}
 	}
 	
 	@Override

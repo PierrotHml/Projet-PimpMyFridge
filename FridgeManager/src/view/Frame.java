@@ -74,15 +74,15 @@ public class Frame extends JFrame
 	    switch_sizer.setPreferredSize(new Dimension((int) state_sizer.getPreferredSize().getWidth(), (int) (state_sizer.getPreferredSize().getHeight() * (2.0/5.0))));
 	    
 	    // Building value panels.
-	    setpoint_temperature_panel = new ValueLabel(15);
+	    setpoint_temperature_panel = new ValueLabel(15, true);
 	    setpoint_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (2.0/3.0)), (int) (values_sizer.getPreferredSize().getWidth() * (2.0/3.0))));
 	    setpoint_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - setpoint_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (1.0/2.0) - 18 - setpoint_temperature_panel.getHeight() / 2.0));
 	    
-	    fridge_temperature_panel = new ValueLabel(0);
+	    fridge_temperature_panel = new ValueLabel(0, false);
 	    fridge_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
 	    fridge_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - fridge_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (1.0/4.0) - 36 - fridge_temperature_panel.getHeight() / 2.0));
 	    
-	    cooler_temperature_panel = new ValueLabel(0);
+	    cooler_temperature_panel = new ValueLabel(0, false);
 	    cooler_temperature_panel.setSize(new Dimension((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0)), (int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0))));
 	    cooler_temperature_panel.setLocation((int) (values_sizer.getPreferredSize().getWidth() * (1.0/2.0) - cooler_temperature_panel.getWidth() / 2.0), (int) (values_sizer.getPreferredSize().getHeight() * (3.0/4.0) - cooler_temperature_panel.getHeight() / 2.0));
 	    
