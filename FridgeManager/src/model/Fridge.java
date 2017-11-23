@@ -10,6 +10,8 @@ public class Fridge {
 	private static ManageData manageData;
 	private static ArduinoLink arduino;
 	private static int order = 0;
+	private int time = 0;
+	private int refreshTime = 2000;
 	
 	
 	public Fridge(CommPortIdentifier portCom){
@@ -27,10 +29,11 @@ public class Fridge {
 					
 					while(true){
 					
-						myView.update_fridge_temperature(manageData.getData("celsius"));
-						myView.update_cooler_temperature(manageData.getData("humidity"));
+						myView.update_fridge_temperature(manageData.getData("celsius"), refreshTime);
+						myView.update_cooler_temperature(manageData.getData("humidity"), refreshTime);
 						refreshView();
-						Thread.sleep(2000);
+						time += refreshTime;
+						Thread.sleep(refreshTime);
 					}
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
