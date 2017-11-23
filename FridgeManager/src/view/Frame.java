@@ -27,9 +27,9 @@ public class Frame extends JFrame
 	private JPanel measures_sizer = new JPanel();
 	private JPanel fridge_sizer = new JPanel();
 	private JPanel graphs_sizer = new JPanel();
-	private JPanel values_sizer = new JPanel();
 	private JPanel setpoint_slider_sizer = new JPanel();
 	private ValuesPanel values_sizer = new ValuesPanel();
+	private JPanel fridge_image_sizer = new JPanel();
 	private JPanel state_sizer = new JPanel();
 	private JPanel alerts_sizer = new JPanel();
 	private JPanel switch_sizer = new JPanel();
