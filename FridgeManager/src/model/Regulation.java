@@ -16,26 +16,14 @@ public class Regulation extends Thread{
 		
 		try {
 			Regulation.sleep(2000);
+			
+			while(true){
+
+			}
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		while(true){
-			
-			try {
-				arduino.turnOnPeltier();
-				System.out.println("TURN ON");
-				Regulation.sleep(10000);
-				arduino.turnOffPeltier();
-				System.out.println("TURN OFF");
-				Regulation.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
 	} 
 }

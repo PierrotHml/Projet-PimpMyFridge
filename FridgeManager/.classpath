@@ -2,8 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< Updated upstream
 	<classpathentry kind="lib" path="C:/common/Java/Addon/RXTXcomm.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JCommon 1.0.19"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JFreeChart 1.0.19"/>
+=======
+	<classpathentry kind="lib" path="D:/CESI année 2/Projet/Fridge/Projet-PimpMyFridge/FridgeManager/lib/RXTXcomm.jar"/>
+>>>>>>> Stashed changes
 	<classpathentry kind="output" path="bin"/>
 </classpath>
