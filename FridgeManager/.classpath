@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/common/Java/Addon/RXTXcomm.jar"/>
-	<classpathentry kind="lib" path="C:/common/Java/Addon/JFreeChart/jcommon-1.0.19/jcommon-1.0.19.jar"/>
-	<classpathentry kind="lib" path="C:/common/Java/Addon/JFreeChart/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JCommon 1.0.19"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JFreeChart 1.0.19"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
