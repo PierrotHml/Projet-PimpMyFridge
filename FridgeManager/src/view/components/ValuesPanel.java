@@ -1,4 +1,4 @@
-package view;
+package view.components;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -17,8 +17,8 @@ public class ValuesPanel extends JPanel{
 	private int a;
 	private int b;
 	private int circleHeight = 5;
-	private Color circle =Color.orange;
-	private Color circle2 = Color.orange;
+	private Color circle = new Color(7,73,133);
+	private Color circle2 =  new Color(7,73,133);
 	
 	
 	public ValuesPanel(){

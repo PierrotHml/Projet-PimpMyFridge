@@ -1,8 +1,10 @@
-package view;
+package view.components;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -28,6 +30,8 @@ public class TemperatureSlider extends JSlider
         setFont(new Font("Arial", 0, 20));
         setForeground(Color.white);
         setBackground(new Color(30,30,30));
+        setBorder(BorderFactory.createMatteBorder(0, 5, 0, 5, Color.black));
+        setCursor(new Cursor(8));
         
         addChangeListener(new ChangeListener()
         {

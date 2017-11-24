@@ -42,6 +42,12 @@ public class Controller
 	}
 	
 	
+	public static void manageFridgeState(boolean state){
+		
+		system.setState(state);
+	}
+	
+	
 	public static void updateModelValue(){
 		
 		system.getArduinoLink().dataEvent();

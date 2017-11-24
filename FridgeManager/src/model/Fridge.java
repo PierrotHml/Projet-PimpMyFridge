@@ -9,9 +9,11 @@ public class Fridge {
 	static View myView;
 	private static ManageData manageData;
 	private static ArduinoLink arduino;
+	private static Regulation regulation;
 	private static int order = 0;
 	private int time = 0;
 	private int refreshTime = 2000;
+	private static boolean state = true; // false = turn off || true = turn on
 	
 	
 	public Fridge(CommPortIdentifier portCom){
@@ -20,7 +22,8 @@ public class Fridge {
 		
 		manageData = new ManageData();
 		arduino = new ArduinoLink(portCom, manageData);
-		//new Regulation(arduino, manageData).start();
+		regulation = new Regulation(arduino, manageData, myView);
+		
 		
 		Thread refreshFrame = new Thread(){
 			public void run() {
@@ -42,6 +45,7 @@ public class Fridge {
 			}
 		};
 		refreshFrame.start();
+		regulation.start();
 	}
 	
 	
@@ -70,5 +74,14 @@ public class Fridge {
 	
 	public static int getOrder(){
 		return order;
+	}
+	
+	public static boolean getState(){
+		return state;
+	}
+	
+	public void setState(boolean buttonState){
+		state = buttonState;
+		myView.tell_frdige_state(state);
 	}
 }

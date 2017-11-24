@@ -1,5 +1,7 @@
 package view;
 
+import view.components.FridgeImage;
+
 public class View
 {
 	Frame frame = null;
@@ -26,6 +28,12 @@ public class View
 	public void tell_frdige_state(boolean state) // ANTONIO
 	{
 		frame.fridge_switch_button.tell_fridge_state(state);
+		FridgeImage.setState(state);
+	}
+	
+	public void swapFridgePicture(boolean arg){
+		
+		FridgeImage.setState(arg);
 	}
 	
 	public void tell_opened_door_alert(boolean open)

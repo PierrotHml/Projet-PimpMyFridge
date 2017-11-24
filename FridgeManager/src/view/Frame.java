@@ -12,6 +12,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import view.components.*;
+
 public class Frame extends JFrame
 {
 	// Version ID to check if the GUI is up-to-date.
@@ -25,7 +27,7 @@ public class Frame extends JFrame
 	
 	// Main sizers
 	private JPanel measures_sizer = new JPanel();
-	private JPanel fridge_sizer = new JPanel();
+	private FridgePanel fridge_sizer = new FridgePanel();
 	private JPanel graphs_sizer = new JPanel();
 	private JPanel setpoint_slider_sizer = new JPanel();
 	private ValuesPanel values_sizer = new ValuesPanel();
@@ -149,6 +151,7 @@ public class Frame extends JFrame
 	    values_sizer.add(fridge_humidity_panel);
 	    
 	    setpoint_slider_sizer.setLayout(null);
+	    setpoint_slider_sizer.setBorder(BorderFactory.createMatteBorder(0, 5, 0, 5, Color.black));
 	    setpoint_slider_sizer.add(setpoint_slider);
 	    
 	    fridge_image_sizer.setLayout(new BorderLayout());
@@ -165,6 +168,7 @@ public class Frame extends JFrame
 	    switch_sizer.add(fridge_switch_button);
 	    
 	    // Creating fridge manager content tree.
+	   // getRootPane().setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.black));
 	    setContentPane(content_sizer);
 	    setVisible(true);
 	}

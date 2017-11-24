@@ -1,4 +1,4 @@
-package view;
+package view.components;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -50,12 +50,12 @@ public class ValueGraph extends ChartPanel
 		}
 	}
 	
-	static JFreeChart get_fridge_temperature_chart()
+	public static JFreeChart get_fridge_temperature_chart()
 	{
 		return ChartFactory.createLineChart("Température du frigidaire par rapport au temps", "Temps (s)", "Température (°C)", fridge_temperature_dataset, PlotOrientation.VERTICAL, true,true,false);
 	}
 	
-	static JFreeChart get_fridge_humidity_chart()
+	public static JFreeChart get_fridge_humidity_chart()
 	{
 		return ChartFactory.createLineChart("Humidité du frigidaire par rapport au temps", "Temps (s)", "Humidité (%)", fridge_humidity_dataset, PlotOrientation.VERTICAL, true,true,false);
 	}
