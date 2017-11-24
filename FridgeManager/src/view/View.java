@@ -16,6 +16,7 @@ public class View
 		frame.fridge_temperature_panel.update_value(value);
 		frame.fridge_temperature_graph.add_value(value, time);
 		frame.animation();
+		refresh();
 	}
 		
 	public void update_fridge_humidity(double value, int time)

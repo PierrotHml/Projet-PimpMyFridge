@@ -76,6 +76,7 @@ public class Frame extends JFrame
 	    fridge_sizer.setPreferredSize(new Dimension((int) (getWidth() * (3.0/10.0)), getHeight()));
 
 	    graphs_sizer.setPreferredSize(new Dimension((int) (getWidth() * (2.0/5.0)), getHeight()));
+	    graphs_sizer.setBorder(BorderFactory.createMatteBorder(0, 5, 0, 0, Color.black));
 
 	    // Building measure sizers.
 	    setpoint_slider_sizer.setBackground(new Color(30,30,30));
