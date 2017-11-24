@@ -52,11 +52,15 @@ public class ValueGraph extends ChartPanel
 	
 	public static JFreeChart get_fridge_temperature_chart()
 	{
-		return ChartFactory.createLineChart("Température du frigidaire par rapport au temps", "Temps (s)", "Température (°C)", fridge_temperature_dataset, PlotOrientation.VERTICAL, true,true,false);
+		JFreeChart chart = ChartFactory.createLineChart("Température du frigidaire par rapport au temps", "Temps (s)", "Température (°C)", fridge_temperature_dataset, PlotOrientation.VERTICAL, true,true,false);
+	
+		return chart;
 	}
 	
 	public static JFreeChart get_fridge_humidity_chart()
 	{
-		return ChartFactory.createLineChart("Humidité du frigidaire par rapport au temps", "Temps (s)", "Humidité (%)", fridge_humidity_dataset, PlotOrientation.VERTICAL, true,true,false);
+		JFreeChart chart = ChartFactory.createLineChart("Humidité du frigidaire par rapport au temps", "Temps (s)", "Humidité (%)", fridge_humidity_dataset, PlotOrientation.VERTICAL, true,true,false);
+	
+		return chart;
 	}
 }
