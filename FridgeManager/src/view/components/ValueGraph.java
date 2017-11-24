@@ -1,5 +1,7 @@
 package view.components;
 
+import java.awt.Color;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -22,6 +24,10 @@ public class ValueGraph extends ChartPanel
 		super(chart);
 
 		this.chart = chart;
+
+		this.chart.removeLegend();
+		
+		this.chart.setBackgroundPaint(new Color(95, 125, 130));
 	}
 	
 	public void add_value(double value, int time)
