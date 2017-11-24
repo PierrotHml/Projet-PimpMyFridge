@@ -72,6 +72,7 @@ public class Frame extends JFrame
 	    
 	    measures_sizer.setPreferredSize(new Dimension((int) (getWidth() * (3.0/10.0)), getHeight()));
 
+	    fridge_sizer.setBackground(new Color(104, 135, 140));
 	    fridge_sizer.setPreferredSize(new Dimension((int) (getWidth() * (3.0/10.0)), getHeight()));
 
 	    graphs_sizer.setPreferredSize(new Dimension((int) (getWidth() * (2.0/5.0)), getHeight()));
@@ -85,6 +86,7 @@ public class Frame extends JFrame
 	    // Building fridge sizers.
 	    fridge_image_sizer.setPreferredSize(new Dimension((int) fridge_sizer.getPreferredSize().getWidth(), (int) (fridge_sizer.getPreferredSize().getHeight() * (3.0/5.0))));
 	    
+	    state_sizer.setBackground(new Color(104, 135, 140));
 	    state_sizer.setPreferredSize(new Dimension((int) fridge_sizer.getPreferredSize().getWidth(), (int) (fridge_sizer.getPreferredSize().getHeight() * (2.0/5.0))));
 	    
 	    // Building value panels.
@@ -109,6 +111,7 @@ public class Frame extends JFrame
 	    // Building state sizers.
 	    alerts_sizer.setPreferredSize(new Dimension((int) state_sizer.getPreferredSize().getWidth(), (int) (state_sizer.getPreferredSize().getHeight() * (3.0/5.0))));
 	    
+	    switch_sizer.setBackground(new Color(104, 135, 140));
 	    switch_sizer.setPreferredSize(new Dimension((int) state_sizer.getPreferredSize().getWidth(), (int) (state_sizer.getPreferredSize().getHeight() * (2.0/5.0))));
 	    
 	    // Building alerts panel.
@@ -151,7 +154,7 @@ public class Frame extends JFrame
 	    values_sizer.add(fridge_humidity_panel);
 	    
 	    setpoint_slider_sizer.setLayout(null);
-	    setpoint_slider_sizer.setBorder(BorderFactory.createMatteBorder(0, 5, 0, 5, Color.black));
+	    setpoint_slider_sizer.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.black));
 	    setpoint_slider_sizer.add(setpoint_slider);
 	    
 	    fridge_image_sizer.setLayout(new BorderLayout());

@@ -1,5 +1,6 @@
 package view.components;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -33,6 +34,8 @@ public class FridgeImage extends JPanel
 	@Override
 	protected void paintComponent(Graphics g)
 	{
+		g.setColor(new Color(104, 135, 140));
+		g.fillRect(0, 0, getWidth(), getHeight());
 		if(state)g.drawImage(fridgeON, (int) ((getWidth() - getHeight() * (4.0/5.0) * (3.0/5.0)) / 2.0), (int) ((getHeight() - getHeight() * (4.0/5.0)) / 2.0), (int) (getHeight() * (4.0/5.0) * (3.0/5.0)), (int) (getHeight() * (4.0/5.0)), this);
 		else g.drawImage(fridgeOFF, (int) ((getWidth() - getHeight() * (4.0/5.0) * (3.0/5.0)) / 2.0), (int) ((getHeight() - getHeight() * (4.0/5.0)) / 2.0), (int) (getHeight() * (4.0/5.0) * (3.0/5.0)), (int) (getHeight() * (4.0/5.0)), this);
 	}

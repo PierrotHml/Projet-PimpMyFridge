@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +22,16 @@ public class AlertsPanel extends JPanel
 	{
 		super();
 		
+		setBackground(new Color(104, 135, 140));
+		top_alert.setHorizontalAlignment(JLabel.CENTER);
+		bot_alert.setHorizontalAlignment(JLabel.CENTER);
+		
+		top_alert.setFont(new Font("Calibri", Font.BOLD, 35));
+		bot_alert.setFont(new Font("Calibri", Font.BOLD, 55));
+		
+		top_alert.setForeground(Color.red);
+		bot_alert.setForeground(Color.red);
+		
 		setLayout(new GridLayout(2, 1));
 		add(top_alert);
 		add(bot_alert);
@@ -33,12 +45,12 @@ public class AlertsPanel extends JPanel
 			
 			if (index == 1)
 			{
-				top_alert.setText("Alerte: La porte est ouverte");
+				top_alert.setText("DOOR OPEN");
 				map.put("door", 1);
 			}
 			else
 			{
-				bot_alert.setText("Alerte: La porte est ouverte");
+				bot_alert.setText("DOOR OPEN");
 				map.put("door", 2);
 			}
 		}

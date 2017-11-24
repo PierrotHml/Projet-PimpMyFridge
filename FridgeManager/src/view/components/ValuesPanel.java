@@ -17,13 +17,9 @@ public class ValuesPanel extends JPanel{
 	private int a;
 	private int b;
 	private int circleHeight = 5;
-	private Color circle = new Color(7,73,133);
-	private Color circle2 =  new Color(7,73,133);
+	private Color circle =new Color(104, 135, 140);
+	private Color circle2 =new Color(104, 135, 140);
 	
-	
-	public ValuesPanel(){
-		
-	}
 	
 	public void paintComponent(Graphics g1){
 		

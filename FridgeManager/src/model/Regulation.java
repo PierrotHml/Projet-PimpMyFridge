@@ -34,6 +34,8 @@ public class Regulation extends Thread{
 					}
 				}
 				else arduino.turnOffPeltier();
+				
+				myView.tell_condensation_risk_alert(true);
 				Regulation.sleep(2000);
 			}
 		} catch (InterruptedException e) {
