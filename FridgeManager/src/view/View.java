@@ -28,6 +28,22 @@ public class View
 		frame.fridge_switch_button.tell_fridge_state(state);
 	}
 	
+	public void tell_opened_door_alert(boolean open)
+	{
+		if (open) 
+			frame.fridge_alerts_panel.add_door_alert();
+		else
+			frame.fridge_alerts_panel.drop_alert("door");
+	}
+	
+	public void tell_condensation_risk_alert(boolean risk)
+	{
+		if (risk) 
+			frame.fridge_alerts_panel.add_door_alert();
+		else
+			frame.fridge_alerts_panel.drop_alert("condensation");
+	}
+	
 	public void refresh(){
 		
 		frame.refreshFrame();

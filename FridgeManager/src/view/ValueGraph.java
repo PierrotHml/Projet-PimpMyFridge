@@ -34,18 +34,18 @@ public class ValueGraph extends ChartPanel
 		{
 			fridge_temperature_dataset.addValue(value, "Température", Integer.toString((int) time));
 			
-			if (values_number > 10)
+			if (values_number > 30)
 			{
-				fridge_temperature_dataset.removeValue("Température", Integer.toString((int) time - 10));
+				fridge_temperature_dataset.removeValue("Température", Integer.toString((int) time - 30));
 			}
 		}
 		else
 		{
 			fridge_humidity_dataset.addValue(value, "Humidité", Integer.toString((int) time));
 			
-			if (values_number > 10)
+			if (values_number > 30)
 			{
-				fridge_humidity_dataset.removeValue("Humidité", Integer.toString((int) time - 10));
+				fridge_humidity_dataset.removeValue("Humidité", Integer.toString((int) time - 30));
 			}
 		}
 	}

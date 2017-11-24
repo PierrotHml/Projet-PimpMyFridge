@@ -48,6 +48,9 @@ public class Frame extends JFrame
 	// Fridge switch button
 	SwitchButton fridge_switch_button;
 	
+	// Fridge alerts panel.
+	AlertsPanel fridge_alerts_panel;
+	
 	// Graphs
 	ValueGraph fridge_temperature_graph;
 	ValueGraph cooler_temperature_graph;
@@ -100,13 +103,15 @@ public class Frame extends JFrame
 	    
 	    // Building firdge image.
 	    fridge_image = new FridgeImage();
-	    //fridge_image.setSize(new Dimension((int) (fridge_image_sizer.getPreferredSize().getHeight() * (4.0/5.0) * (3.0/5.0)), (int) (fridge_image_sizer.getHeight() * (4.0/5.0))));
-	    //fridge_image.setLocation((int) (fridge_image_sizer.getPreferredSize().getWidth() / 2.0 - fridge_image.getWidth() / 2.0), (int) (fridge_image_sizer.getPreferredSize().getHeight() / 2.0 - fridge_image.getHeight() / 2.0));
 	    
 	    // Building state sizers.
 	    alerts_sizer.setPreferredSize(new Dimension((int) state_sizer.getPreferredSize().getWidth(), (int) (state_sizer.getPreferredSize().getHeight() * (3.0/5.0))));
 	    
 	    switch_sizer.setPreferredSize(new Dimension((int) state_sizer.getPreferredSize().getWidth(), (int) (state_sizer.getPreferredSize().getHeight() * (2.0/5.0))));
+	    
+	    // Building alerts panel.
+	    fridge_alerts_panel = new AlertsPanel();
+	    fridge_alerts_panel.setPreferredSize(alerts_sizer.getPreferredSize());
 	    
 	    // Building switch button.
 	    fridge_switch_button = new SwitchButton();
@@ -153,7 +158,8 @@ public class Frame extends JFrame
 	    state_sizer.add(alerts_sizer, BorderLayout.NORTH);
 	    state_sizer.add(switch_sizer, BorderLayout.SOUTH);
 	    
-	    alerts_sizer.setLayout(new GridLayout(1, 2));
+	    alerts_sizer.setLayout(new BorderLayout());
+	    alerts_sizer.add(fridge_alerts_panel, BorderLayout.CENTER);
 	    
 	    switch_sizer.setLayout(null);
 	    switch_sizer.add(fridge_switch_button);
@@ -180,7 +186,6 @@ public class Frame extends JFrame
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
