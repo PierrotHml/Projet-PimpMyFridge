@@ -27,7 +27,7 @@ public class Frame extends JFrame
 	
 	// Main sizers
 	private JPanel measures_sizer = new JPanel();
-	private FridgePanel fridge_sizer = new FridgePanel();
+	private JPanel fridge_sizer = new JPanel();
 	private JPanel graphs_sizer = new JPanel();
 	private JPanel setpoint_slider_sizer = new JPanel();
 	private ValuesPanel values_sizer = new ValuesPanel();
@@ -184,7 +184,7 @@ public class Frame extends JFrame
 		this.repaint();
 	}
 	
-	public void animation(){
+	public void animationLink(){
 		
 		Thread animation = new Thread(){
 			public void run(){
@@ -200,6 +200,30 @@ public class Frame extends JFrame
 			}
 		};
 		animation.start();
+		
+	}
+	
+	public void animationAlert(boolean choice){
+		
+		Thread animation = new Thread(){
+			public void run(){
+				for(int i = 0; i <= 15; i++){
+					fridge_alerts_panel.setAnimationState(i);
+					repaint();
+					try {
+						Thread.sleep(70);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		if(choice) animation.start();
+		else{
+			System.out.println("OK");
+			fridge_alerts_panel.setAnimationState(100);
+			refreshFrame();
+		}
 		
 	}
 }

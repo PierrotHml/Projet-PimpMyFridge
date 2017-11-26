@@ -9,8 +9,28 @@ public class ManageData{
 	private static float data[] = {(float) 0, (float) 0, (float) 0, (float) 0}; 
 	private static float R2, V0, celsius, kelvin;
 	private static float humidity;
-	private static float celsiusDHT22;
+	private static float celsiusDHT22; 
+	private static boolean doorState = false; //false = fermé  |  true = ouvert
+	private static float rosePoint;
 	
+	
+	public float getRosePoint(){
+	
+		float alpha = (float) ((17.27 * celsius) / (237.7 + celsius) + Math.log(humidity/100));
+		return (float)(237.7 * alpha) / (float)(17.27 - alpha);
+	}
+	
+	
+	public boolean getdoorState() {
+		return doorState;
+	}
+
+
+	public void setDoorState(boolean doorState) {
+		ManageData.doorState = doorState;
+	}
+
+
 	static DecimalFormat df = new DecimalFormat("0.##");
 	
 	

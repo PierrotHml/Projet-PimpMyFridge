@@ -55,6 +55,11 @@ public class ArduinoLink{
 			if(inputLine.startsWith("A")) manageData.setTemp(Float.parseFloat(inputLine.replaceAll("A", "")));
 			else if(inputLine.startsWith("B")) manageData.setHumidity(Float.parseFloat(inputLine.replaceAll("B", "")));
 			else if(inputLine.startsWith("C")) manageData.setTempDHT22(Float.parseFloat(inputLine.replaceAll("C", "")));
+			else if(inputLine.startsWith("D")){
+				
+				if(inputLine.replaceAll("D", "").equals("1")) manageData.setDoorState(true);
+				else manageData.setDoorState(false);
+			}
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -67,7 +72,6 @@ public class ArduinoLink{
 		
 		try {
 			output.write(1);
-			System.out.println("turn on");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,7 +83,6 @@ public class ArduinoLink{
 		
 		try {
 			output.write(0);
-			System.out.println("turn off");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
