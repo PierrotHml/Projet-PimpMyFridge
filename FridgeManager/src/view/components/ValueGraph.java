@@ -7,11 +7,13 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.Axis;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.data.Range;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class ValueGraph extends ChartPanel
@@ -29,7 +31,7 @@ public class ValueGraph extends ChartPanel
 	{
 		super(chart);
 		this.chart = chart;
-
+		
 		CategoryPlot plot = (CategoryPlot) chart.getPlot();  
 		LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();   
 		
@@ -58,16 +60,16 @@ public class ValueGraph extends ChartPanel
 			
 			if (values_number > 60)
 			{
-				fridge_temperature_dataset.removeValue("Température", Integer.toString((int) time - 60));
+				fridge_temperature_dataset.removeValue("Température", Integer.toString((int) time - 42));
 			}
 		}
 		else
 		{
 			fridge_humidity_dataset.addValue(value, "Humidité", Integer.toString((int) time));
 			
-			if (values_number > 60)
+			if (values_number > 42)
 			{
-				fridge_humidity_dataset.removeValue("Humidité", Integer.toString((int) time - 60));
+				fridge_humidity_dataset.removeValue("Humidité", Integer.toString((int) time - 42));
 			}
 		}
 	}
@@ -75,7 +77,9 @@ public class ValueGraph extends ChartPanel
 	public static JFreeChart get_fridge_temperature_chart()
 	{
 		JFreeChart chart = ChartFactory.createLineChart("Température du frigidaire par rapport au temps", "Temps (s)", "Température (°C)", fridge_temperature_dataset, PlotOrientation.VERTICAL, true,true,false);
-	
+
+		chart.getCategoryPlot().getRangeAxis().setRange(new Range(0.0, 30.0));
+		
 		return chart;
 	}
 	
@@ -83,6 +87,8 @@ public class ValueGraph extends ChartPanel
 	{
 		JFreeChart chart = ChartFactory.createLineChart("Humidité du frigidaire par rapport au temps", "Temps (s)", "Humidité (%)", fridge_humidity_dataset, PlotOrientation.VERTICAL, true,true,false);
 	
+		chart.getCategoryPlot().getRangeAxis().setRange(new Range(0.0, 100.0));
+		
 		return chart;
 	}
 	
