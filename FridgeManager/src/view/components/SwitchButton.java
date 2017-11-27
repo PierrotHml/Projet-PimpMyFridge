@@ -27,14 +27,14 @@ public class SwitchButton extends JButton
 	
 	public void set_on()
 	{
-		setText("TURN OFF");
+		setText("ETEINDRE");
 		setBackground(new Color(191, 77, 68));
 		fridge_power = true;
 	}
 	
 	public void set_off()
 	{
-		setText("TURN ON");
+		setText("ALLUMER");
 		setBackground(new Color(91, 178, 98));
 		fridge_power = false;
 	}

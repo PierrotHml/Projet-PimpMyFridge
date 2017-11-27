@@ -220,7 +220,6 @@ public class Frame extends JFrame
 		};
 		if(choice) animation.start();
 		else{
-			System.out.println("OK");
 			fridge_alerts_panel.setAnimationState(100);
 			refreshFrame();
 		}

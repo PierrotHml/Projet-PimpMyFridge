@@ -10,7 +10,7 @@ public class Fridge {
 	private static ManageData manageData;
 	private static ArduinoLink arduino;
 	private static Regulation regulation;
-	private static int order = 0;
+	private static int order = 15;
 	private int time = 0;
 	private int refreshTime = 2000;
 	private static boolean state = true; // false = turn off || true = turn on

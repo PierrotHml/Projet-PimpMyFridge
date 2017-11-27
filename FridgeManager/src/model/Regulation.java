@@ -52,6 +52,7 @@ public class Regulation extends Thread{
 				if(manageData.getdoorState() || Fridge.getOrder() <= manageData.getRosePoint() && Fridge.getState() != false) myView.launchAlertAnim(true);
 				else myView.launchAlertAnim(false);
 				
+				System.out.println(manageData.getRosePoint());
 				Regulation.sleep(2000);
 			}
 		} catch (InterruptedException e) {

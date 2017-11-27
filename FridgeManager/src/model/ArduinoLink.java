@@ -57,8 +57,8 @@ public class ArduinoLink{
 			else if(inputLine.startsWith("C")) manageData.setTempDHT22(Float.parseFloat(inputLine.replaceAll("C", "")));
 			else if(inputLine.startsWith("D")){
 				
-				if(inputLine.replaceAll("D", "").equals("1")) manageData.setDoorState(true);
-				else manageData.setDoorState(false);
+				if(inputLine.replaceAll("D", "").equals("1")) manageData.setDoorState(false);
+				else manageData.setDoorState(true);
 			}
 
 		} catch (IOException e) {
