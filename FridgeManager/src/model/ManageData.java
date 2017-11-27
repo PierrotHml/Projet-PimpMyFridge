@@ -11,8 +11,7 @@ public class ManageData{
 	private static float humidity;
 	private static float celsiusDHT22; 
 	private static boolean doorState = false; //false = fermé  |  true = ouvert
-	private static float rosePoint;
-	
+	static DecimalFormat df = new DecimalFormat("0.##");
 	
 	public float getRosePoint(){
 	
@@ -31,7 +30,7 @@ public class ManageData{
 	}
 
 
-	static DecimalFormat df = new DecimalFormat("0.##");
+	
 	
 	
 	public static String roundData(float data){

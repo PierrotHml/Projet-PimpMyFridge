@@ -9,9 +9,9 @@ import model.Fridge;
 
 public class Controller
 {
-	static CommPortIdentifier serialPortId;
-	static Enumeration<?> enumComm;
-	static CommPortIdentifier comPort;
+	private static CommPortIdentifier serialPortId;
+	private static Enumeration<?> enumComm;
+	private static CommPortIdentifier comPort;
 	private static Fridge system;
 	
 	
@@ -31,7 +31,7 @@ public class Controller
 	}
 	
 	
-	public static CommPortIdentifier findPort(){
+	private static CommPortIdentifier findPort(){
 		
 		enumComm = CommPortIdentifier.getPortIdentifiers();
 		while(enumComm.hasMoreElements()){		

@@ -11,8 +11,4 @@ public class VirtualLink{
 		serialPort.addEventListener(new ListenerSerialEvent());
 		serialPort.notifyOnDataAvailable(true);
 	}
-	
-	public VirtualLink(){
-		
-	}
 }
